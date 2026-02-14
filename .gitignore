@@ -1,0 +1,21 @@
+# Virtual env
+.trackerENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Local config / secrets
+.env
+
+# Local DB (will exist later)
+momentum.db
+*.db
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
