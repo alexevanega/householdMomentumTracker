@@ -1,9 +1,13 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
 from app.settings import settings
-from app.db import init_db
+from app.db import init_db, get_db
+from app.models.user import User
+from app.models.task import Task
+from app.models.enums import TaskDomain, TaskEffort, TaskStatus
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -32,3 +36,38 @@ def home(request: Request):
 @app.get("/api/health")
 def health():
     return {"status":"ok"}
+
+@app.post("/api/dev/seed")
+def seed_data(db: Session = Depends(get_db)):
+    user1 = User(name="Peter", role="Admin")
+    user2 = User(name="Yij", role="Member")
+
+    task1 = Task(
+        title="Take out trash",
+        domain=TaskDomain.CHORES.value,
+        effort=TaskEffort.TINY.value,
+        status=TaskStatus.BACKLOG.value,
+        definition_of_done="Trash bins emptied and bags replaced",
+        materials_needed="Trash bags"
+    )
+
+    task2 = Task(
+        title="Pay electric bill",
+        domain=TaskDomain.BILLS.value,
+        effort=TaskEffort.SMALL.value,
+        status=TaskStatus.BACKLOG.value,
+        definition_of_done="Payment confirmation recieved",
+        materials_needed="Credit Card, Bill"
+    )
+
+    db.add_all([user1, user2, task1, task2])
+    db.commit()
+
+    return {"message": "Seeded dev data"}
+
+@app.get("/api/dev/status")
+def dev_status(db: Session = Depends(get_db)):
+    return {
+        "users": db.query(User).count(),
+        "tasks": db.query(Task).count()
+    }

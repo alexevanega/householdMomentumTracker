@@ -15,7 +15,7 @@ class Task(Base, TimestampMixin):
     status: Mapped[str] = mapped_column(String(30), nullable=False, default=TaskStatus.BACKLOG.value)
 
     definition_of_done: Mapped[str] = mapped_column(Text, nullable=False)
-    materials_needed: Mapped[str | None] = mapped_column(Text, nullable=False)
+    materials_needed: Mapped[str | None] = mapped_column(Text, nullable=True)
     owner_user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
     # Relationship is optional now but will help later
