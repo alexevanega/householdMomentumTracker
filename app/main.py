@@ -7,6 +7,7 @@ from app.settings import settings
 from app.db import init_db, get_db
 from app.models.user import User
 from app.models.task import Task
+from app.models.daily_win import DailyWin
 from app.models.enums import TaskDomain, TaskEffort, TaskStatus
 
 @asynccontextmanager
@@ -70,5 +71,6 @@ def seed_data(db: Session = Depends(get_db)):
 def dev_status(db: Session = Depends(get_db)):
     return {
         "users": db.query(User).count(),
-        "tasks": db.query(Task).count()
+        "tasks": db.query(Task).count(),
+        "daily_wins": db.query(DailyWin).count()
     }
