@@ -37,6 +37,7 @@ def home(request: Request):
 def health():
     return {"status":"ok"}
 
+# DEV ONLY: Remove or disable /api/dev/* endpoints outside local development (Phase 7+)
 @app.post("/api/dev/seed")
 def seed_data(db: Session = Depends(get_db)):
     user1 = User(name="Peter", role="Admin")
