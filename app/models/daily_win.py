@@ -7,7 +7,7 @@ from app.models.enums import DailyWinStatus
 class DailyWin(Base, TimestampMixin):
     __tablename__ = "daily_wins"
 
-    __table_args__ = (
+    __tableargs__ = (
         UniqueConstraint("date", name="uq_daily_win_date")
     )
 

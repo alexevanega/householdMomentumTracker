@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.settings import settings
+from app.models.base import Base
 
 #SQLite needs this flag for multi-threaded access in typical FastAPI usage.
 connect_args = {"check_same_thread": False} if settings.DATABASE_URL.startswith("sqlite") else {}
@@ -8,6 +9,10 @@ connect_args = {"check_same_thread": False} if settings.DATABASE_URL.startswith(
 engine = create_engine(settings.DATABASE_URL, connect_args=connect_args)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def init_db() -> None:
+    # Creates tables for all imported models
+    Base.metadata.create_all(bind=engine)
 
 def get_db():
 

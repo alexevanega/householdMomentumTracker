@@ -1,9 +1,18 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.settings import settings
+from app.db import init_db
 
-app = FastAPI(title=settings.APP_NAME)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    init_db()
+    yield
+    # Shutdown (nothing yet)
+
+app = FastAPI(title=settings.APP_NAME, lifespan=lifespan)
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
