@@ -228,7 +228,7 @@ Your database becomes the single source of truth: models exist, tables exist, an
     
     - `POST /api/dev/seed` (creates 2 users and 2 tasks)
         
-    - `GET /api/dev/stats` (returns counts: users/tasks/daily_wins)
+    - `GET /api/dev/status` (returns counts: users/tasks/daily_wins)
         
 
 **Acceptance Criteria**
