@@ -108,7 +108,7 @@ Your database becomes the single source of truth: models exist, tables exist, an
     
     - `TaskDomain`: CHORES, BILLS, FOOD, REPAIRS, OTHER
         
-    - `TaskEffort`: TINY, SMALL, MEDIUM
+    - `TaskEffort`: TINY, SMALL, MEDIUM, COMPLEX
         
     - `TaskStatus`: BACKLOG, ACTIVE, PAUSED, BLOCKED, DONE, ABANDONED
         
