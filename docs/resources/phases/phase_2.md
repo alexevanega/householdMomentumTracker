@@ -231,15 +231,19 @@ A checklist of scenarios the system must handle, such as:
 
 You are done with Phase 2 when:
 
-- The full state machine is written
+- core_domain_rules exists as a directory under docs/resources
+
+- core_domain rules contains a task_state_machine.md file
+
+- core_domain_rules contains a locked_vocabulary.md file
     
-- The Daily Win invariant is written
+- core_domain_rules contains a daily_win_invariant.md file
     
-- Resolution rules are written
+- core_domain_rules contains a resolution_rules.md file
     
-- Edge cases are decided
+- core_domain_rules contains a edge_cases.md file
     
-- Test matrix exists (as scenarios)
+- docs/resources contains a test_matrix.md file
     
 - Ownership + Definition of Done rules are explicit
     
