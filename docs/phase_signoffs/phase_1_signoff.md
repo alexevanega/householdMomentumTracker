@@ -112,11 +112,27 @@ No repository changes were made in this rerun audit, so no commit/PR was created
 
 ## Git Verification
 
-- [] 'git status' clean
-- [] Relevant commits present
-- [] No unintended files
+- [x] 'git status' clean
+- [x] Relevant commits present
+- [x] No unintended files
 
 Commit Summary:
+
+- c1dc93f added models directory and python files for each model so far.
+- af2b8df initiated the base model
+- ab7495c added user model.
+- 43f4d84 added content to enums file.
+- 6feeee4 created task model.
+- 0c49cfe created daily win model
+- 669bf2d initialized the db connection in :
+- c1dc93f added models directory and python files for each model so far.
+- af2b8df initiated the base model
+- ab7495c added user model.
+- 43f4d84 added content to enums file.
+- 6feeee4 created task model.
+- 0c49cfe created daily win model
+- 669bf2d initialized the db connection in my db config and registerd and created the tables.
+- 3bffb0e testing endpoints and fixed error in task model.
 
 ---
 
@@ -128,7 +144,7 @@ Document any approved deviations from the planned phase scope.
 
 ## Final Status
 
-- [] APPROVED
+- [x] APPROVED
 - [] REMEIDATION REQUIRED
 
 If remediation required, describe required actions:
@@ -137,4 +153,4 @@ If remediation required, describe required actions:
 
 ## Sign-Off
 
-Signature:
+Signature: HK Peter

@@ -117,6 +117,14 @@ APPROVED
 
 Commit Summary:
 
+- c1fa24f intialize repo
+- 5b14249 added .trackerENV & adjust .gitignore to show change in venv name
+- 5d57ae3 added requirements.txt, requirements.lock.txt (version source), and installed packages to pip
+- ad85719 added app and docs directories. intialized files. completed development model.
+- 04e789b added content to the ai usage policy in docs
+- 4bfc9e6 added phase_signoff_protocol.md, phases directory, phase_list.md, and phase_signoff_template.md to docs. Also added content to phase_signoff_protocol.md.
+- 2f58083 added content to system_overview.md
+
 ---
 
 ## Deviations / Exceptions
