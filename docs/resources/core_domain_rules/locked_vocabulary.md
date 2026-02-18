@@ -1,8 +1,6 @@
-# Core Domain Rules
+# Locked Vocabulary
 
-## Locked Vocabulary
-
-### TaskStatus (v1)
+## TaskStatus (v1)
 - BACKLOG - The task exists, is eligible to be chosen, but is not being worked right now.
 
 - ACTIVE - The task is the current focus item being worked (typically today's Daily Win)
@@ -15,13 +13,13 @@
 
 - ABANDONED - The task is intentionally retired and should not be suggested or selected again
 
-#### No Overlap Rule (important):
+### No Overlap Rule (important):
 - PAUSED = voluntary stop (you chose to stop)
 - BLOCKED = forced stop (you cannot proceed)
 
 ---
 
-### DailyWinStatus (v1)
+## DailyWinStatus (v1)
 - ACTIVE - The Daily Win for that calendar day is selected and not yet resolved
 
 - DONE - The Daily Win was completed for that day
@@ -30,14 +28,14 @@
 
 - BLOCKED - The Daily Win could not be completed that day due to a constraint, with a note explaining what it is
 
-#### DailyWinStatus deliberately does NOT include:
+### DailyWinStatus deliberately does NOT include:
 - BACKLOG (Daily Win isn't 'pending', it is either chosen or not)
 
 - ABANDONED (Daily Win is a daily record; Abandonment is a task concept)
 
 ---
 
-### Plain-English Glossary Rules (to prevent future argument)
+## Plain-English Glossary Rules (to prevent future argument)
 - A task can be PAUSED even if it could be done - you're choosing not to do it right now
 
 - A task is BLOCKED only if something outside your control prevents progress
@@ -46,7 +44,7 @@
 
 ---
 
-### Definition of Done Vocabulary
+## Definition of Done Vocabulary
 - Definition of Done (DoD) - A concrete description of what must be true for this task to be considered DONE
 
 ---
