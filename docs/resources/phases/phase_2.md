@@ -242,8 +242,10 @@ You are done with Phase 2 when:
 - core_domain_rules contains a resolution_rules.md file
     
 - core_domain_rules contains a edge_cases.md file
+
+- docs/resources/test_matrices exists as a directory
     
-- docs/resources contains a test_matrix.md file
+- docs/resources/test_matrices contains a phase_2_test_matrix.md file
     
 - Ownership + Definition of Done rules are explicit
     
