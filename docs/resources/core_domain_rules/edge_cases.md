@@ -1,4 +1,4 @@
-# Edge Case Handling
+# Edge Cases
 
 Purpose: Ensure the system behaves predictably when real life, time boundaries, or empty data states occur.
 
