@@ -24,10 +24,6 @@ Database-level uniqueness constraint recommended on date.
 A Daily Win may be selected only if:
     - No Daily Win exists for that day
 
-            OR
-
-    - Today's Daily Win exists and is resolved (DONE, PAUSED, BLOCKED)
-
 Selection is rejected if:
     - Today's Daily Win is ACTIVE
 
@@ -49,7 +45,7 @@ When resolving:
         - completed at timestamp set
     - If PAUSED:
         - DailyWin -> PAUSED (note required)
-        - Task -> BLOCKED
+        - Task -> PAUSED
     
 These transitions must respect the Task State Machine
 
@@ -73,7 +69,7 @@ ACTIVE is the only unresolved state
 
 - Can you select a new win if today's is ACTIVE? -> No
 
-- Can you select a new wint if today's is PAUSED? -> Yes
+- Can you select a new win if today's is PAUSED? -> Yes
 
 - Does resolving DONE affect the Task? -> Yes, Task becomes DONE
 

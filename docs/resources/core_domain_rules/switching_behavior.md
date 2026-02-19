@@ -27,6 +27,8 @@ User must explicitly choose one:
     - BLOCKED (note required)
 ACTIVE cannot be cleared without one of these
 
+Only ONE Daily win may be completed (marked DONE) per calendar day due to uniqueness constraints.
+
 ---
 
 ### Step 2 - Select New Daily Win

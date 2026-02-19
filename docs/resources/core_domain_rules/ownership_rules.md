@@ -31,11 +31,8 @@ This Prevents:
 
 You must choose one of these policies and document it clearly
 
-If the Task has no owner:
-    - The selecting user becomes the owner automatically.
-
-If the Task has an owner:
-    - Ownership remains unchanged
+If the Task has no selected owner:
+    - The selecting user is auto-assigned becomes the owner automatically.
 
 Later Option:
 
@@ -46,11 +43,9 @@ At selction:
 ---
 
 ## Shared Ownership Policy
-If you allow Shared:
-    Represent as:
-        - "owner = null" + "shared=true"
-                OR
-        - special "Share" user
+Represent as:
+    - special "Share" user and ability to add multiple owners
+    - one primary and one secondary owner
 
 Shared means: 
 

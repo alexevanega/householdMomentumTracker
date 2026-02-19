@@ -61,7 +61,7 @@ Minimum note quality (v1):
 
 - PAUSED/BLOCKED -> ACTIVE: We are resuming work now.
 
-- Any -> ABANDONED: We are retiring this task permanently
+- PAUSED/BLOCKED/BACKLOG -> ABANDONED: We are retiring this task permanently
 
 ---
 
