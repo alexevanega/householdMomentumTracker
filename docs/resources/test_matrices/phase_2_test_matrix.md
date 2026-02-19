@@ -234,7 +234,8 @@ Then the system rejects the attempt
 
 Given today's Daily Win is ACTIVE
 When user wants a different task
-Then user must resolve current as DONE/PAUSED/BLOCKED
+Then user must resolve current as PAUSED/BLOCKED
+And current Daily Win will be vacated
 And only after resolution may a new selection occur
 
 ---

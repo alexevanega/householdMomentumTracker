@@ -22,18 +22,17 @@ If a user wants to switch to different task:
 ### Step 1 - Resolve Current Daily Win
 
 User must explicitly choose one:
-    - DONE
     - PAUSED (note required)
     - BLOCKED (note required)
 ACTIVE cannot be cleared without one of these
 
-Only ONE Daily win may be completed (marked DONE) per calendar day due to uniqueness constraints.
+Only ONE Daily win may be completed (marked DONE) per calendar day due to uniqueness constraints. Therefore switching will not be allowed if Daily Win is marked DONE. Switching will only be allowed when task is BLOCKED or PAUSED (with note)
 
 ---
 
 ### Step 2 - Select New Daily Win
 
-After resolution is accepted:
+After BLOCKED/PAUSED resolution is accepted:
     - The Daily Win slot becomes available
     - A new eligible task may be selected
     - The new task transitions to ACTIVE

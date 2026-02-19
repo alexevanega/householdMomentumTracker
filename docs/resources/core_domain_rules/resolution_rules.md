@@ -14,7 +14,7 @@ If a daily Win is ACTIVE, the Daily Win slot for that date is locked.
 - PAUSED (note required)
 - BLOCKED (note required)
 
-Only resolved states allow a new Daily Win to be selected.
+Only PAUSED/BLOCKED states vacate Daily Win record and allow a new Daily Win to be selected.
 
 ---
 
@@ -48,6 +48,8 @@ Invalid Examples:
 
 Keep enforcement minimal but real
 
+Once PAUSED state is accepted, DailyWin record is vacated and a new Daily Win Task will populate.
+
 ---
 
 ## BLOCKED Resolution Requirements
@@ -64,16 +66,18 @@ Valid Examples:
     - "Waiting on Elijah to confirm"
     - "Cannot access attic ladder"
 
+    Once BLOCKED state is accepted, DailyWin record is vacated and a new Daily Win Task will populate.
+
 ---
 
 ## Slot Clearance Rule
 The Daily Win slot for the day becomes eligible for new selection only when:
 
-    - Status is DONE, PAUSED, BLOCKED
+    - Status is PAUSED, BLOCKED
             AND
     - All required resolution conditions are satisfied
 
-ACTIVE is the only locking state.
+ACTIVE/DONE are the only locking states.
 
 ---
 

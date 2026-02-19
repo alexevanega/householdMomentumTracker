@@ -23,9 +23,11 @@ Database-level uniqueness constraint recommended on date.
 
 A Daily Win may be selected only if:
     - No Daily Win exists for that day
+    - Current Daily Win is marked PAUSED/BLOCKED (with note) opening Daily Win record for selection
 
 Selection is rejected if:
     - Today's Daily Win is ACTIVE
+    - Today's Daily Win is DONE
 
 ---
 

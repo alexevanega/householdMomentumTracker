@@ -156,7 +156,7 @@ Define and enforce the household rules that make this system different from a to
 
 ---
 
-## 2.8 — Define Failure/Edge Case Handling
+## 2.8 — Define Failure/Edge Cases
 
 **Objective:** Prevent the system from breaking when real life happens.
 
