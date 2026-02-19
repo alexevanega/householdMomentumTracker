@@ -12,7 +12,8 @@
 For any given calendar date (based on server-local-date):
     - There may be zero or one DailyWin records
     - If one exists:
-        - It may have status ACTIVE, DONE, PAUSED, or BLOCKED
+        - It may have status ACTIVE or DONE
+        - If marked PAUSED/BLOCKED, DailyWin is vacated and new one selected.
     - There may never be more than one DailyWin per date.
 
 Database-level uniqueness constraint recommended on date.
