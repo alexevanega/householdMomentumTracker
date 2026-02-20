@@ -43,8 +43,8 @@ After BLOCKED/PAUSED resolution is accepted:
 The following are disallowed:
 
     - Replacing ACTIVE Daily Win without resolution
-    - Transitioning ACTIVE -> BACKLOG to "soft drop the task
-    - Editing DailyWin record to point to a new task
+    - Transitioning ACTIVE -> BACKLOG to "soft drop the task"
+    - Editing DailyWin record while ACTIVE to point to a new task (switching is allowed while PAUSED/BLOCKED)
     - Deleting ACTIVE DailyWin record
 
 All switches must leave a historical trace
@@ -85,7 +85,7 @@ Documented only as future possibilities
 
 - Can you silently replace an ACTIVE task? -> No
 
-- Must you choose DONE, PAUSED, or BLOCKED before switching? -> Yes
+- Must you choose PAUSED or BLOCKED before switching? -> Yes
 
 - Does every switch create a historical record? -> Yes
 
