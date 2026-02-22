@@ -9,11 +9,10 @@
 ## Uniqueness Rule
 
 For any given calendar date (based on server-local-date):
-    - There may be zero or one DailyWin records for that date
+    - There may be one DailyWin record per date
     - If one exists:
         - It may have status ACTIVE or DONE
-        - If marked PAUSED/BLOCKED, DailyWin is vacated and a new Daily Win is selected.
-    - There may never be more than one DailyWin per date.
+        - If marked PAUSED/BLOCKED with a valid note, a new Daily Win is selected.
 
 Database-level uniqueness constraint recommended on date.
 
@@ -57,7 +56,7 @@ These transitions must respect the Task State Machine
 
 A Daily Win is considered resolved when:
 
-    - Status is DONE, PAUSED, or BLOCKED
+    - Status is DONE
     - If PAUSED or BLOCKED -> note exists and is non-empty and DailyWin is vacated
     - If DONE -> completed_at exists
 
