@@ -3,18 +3,17 @@
 ## Core Invariant
 
     - Exactly ONE Daily Win may be ACTIVE per calendar day
-        - No exceptions. No Workaround
 
 ---
 
 ## Uniqueness Rule
 
 For any given calendar date (based on server-local-date):
-    - There may be zero or one DailyWin records
-    - If one exists:
-        - It may have status ACTIVE or DONE
+    - There may be zero or one DailyWin records ACTIVE
+    - If one is ACTIVE:
+        - It may be marked DONE to complete the task for the day.
         - If marked PAUSED/BLOCKED, DailyWin is vacated and new one selected.
-    - There may never be more than one DailyWin per date.
+    - There may never be more than one DailyWin marked DONE per date but it does not need to be the original task picked.
 
 Database-level uniqueness constraint recommended on date.
 
@@ -58,8 +57,8 @@ These transitions must respect the Task State Machine
 
 A Daily Win is considered resolved when:
 
-    - Status is DONE, PAUSED, or BLOCKED
-    - If PAUSED or BLOCKED -> note exists and is non-empty
+    - Status is DONE
+    - If PAUSED or BLOCKED -> note exists and DailyWin is vacated and new DailyWin selected
     - If DONE -> completed_at exists
 
 ACTIVE is the only unresolved state
@@ -71,8 +70,6 @@ ACTIVE is the only unresolved state
 - Can two ACTIVE Daily Wins exists for the same day? -> No
 
 - Can you select a new win if today's is ACTIVE? -> No
-
-- Can you select a new win if today's is PAUSED? -> Yes
 
 - Does resolving DONE affect the Task? -> Yes, Task becomes DONE
 
