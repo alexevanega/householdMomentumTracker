@@ -66,40 +66,40 @@ Minimum note quality (v1):
 ---
 
 ## Definition of Done Check
-A) Completeness
+### Completeness
 
-Every TaskStatus has an explicit list of allowed “next” statuses.
+- Every TaskStatus has an explicit list of allowed “next” statuses.
 
-Terminal states (DONE, ABANDONED) are explicitly terminal.
+- Terminal states (DONE, ABANDONED) are explicitly terminal.
 
-B) No overlaps / no ambiguity
+### No overlaps / no ambiguity
 
-PAUSED vs BLOCKED distinction is written in one sentence each.
+- PAUSED vs BLOCKED distinction is written in one sentence each.
 
-“Backlog” meaning is defined (eligible again, not being worked).
+- “Backlog” meaning is defined (eligible again, not being worked).
 
-C) Disallowed transitions are explicit
+### Disallowed transitions are explicit
 
-Invalid transitions are listed (not implied).
+- Invalid transitions are listed (not implied).
 
-“Teleporting to DONE” is explicitly forbidden.
+- “Teleporting to DONE” is explicitly forbidden.
 
-D) Note requirements are explicit
+### Note requirements are explicit
 
-Any transition into PAUSED requires a note.
+- Any transition into PAUSED requires a note.
 
-Any transition into BLOCKED requires a note.
+- Any transition into BLOCKED requires a note.
 
-Minimum note quality rule is stated (non-empty after trimming).
+- Minimum note quality rule is stated (non-empty after trimming).
 
-E) Quick sanity questions (answerable from the doc)
+### Quick sanity questions (answerable from the doc)
 
-Can a PAUSED task go straight to DONE? No.
+- Can a PAUSED task go straight to DONE? No.
 
-Can an ACTIVE task go to BACKLOG? No (by design).
+- Can an ACTIVE task go to BACKLOG? No (by design).
 
-Can a BACKLOG task be marked BLOCKED before it’s started? Yes (if you keep that transition).
+- Can a BACKLOG task be marked BLOCKED before it’s started? Yes (if you keep that transition).
 
-Can DONE ever be re-opened? No.
+- Can DONE ever be re-opened? No.
 
-Can ABANDONED ever be revived? No.
+- Can ABANDONED ever be revived? No.

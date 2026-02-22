@@ -29,10 +29,8 @@ This Prevents:
 
 ## Owner Determination at Selction Time
 
-You must choose one of these policies and document it clearly
-
 If the Task has no selected owner:
-    - The selecting user is auto-assigned becomes the owner automatically.
+    - The selecting user is auto-assigned and becomes the owner automatically.
 
 Later Option:
 
