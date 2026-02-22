@@ -84,11 +84,9 @@ Define and enforce the household rules that make this system different from a to
 
 **Outputs**
 
-- Resolved states: DONE, PAUSED (note required), BLOCKED (note required)
+- Resolved states: DONE
     
 - Unresolved state: ACTIVE
-    
-- Whether “ABANDONED” exists and whether it counts as resolved (v1 can omit)
     
 
 **Definition of Done**
