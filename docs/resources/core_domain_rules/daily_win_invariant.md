@@ -60,7 +60,6 @@ These transitions must respect the Task State Machine
 A Daily Win is considered resolved when:
 
     - Status is DONE
-    - If PAUSED or BLOCKED -> note exists and is non-empty and and new DailyWin is selected
     - If DONE -> completed_at exists
 
 ACTIVE is the only unresolved state
