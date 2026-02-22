@@ -11,7 +11,7 @@
 For any given calendar date (based on server-local-date):
     - There may be one DailyWin record per date
     - If one exists:
-        - It may have status ACTIVE or DONE
+        - It may have status ACTIVE, PAUSED, BLOCKED, or DONE
         - If marked PAUSED/BLOCKED with a valid note, a new Daily Win is selected.
 
 Database-level uniqueness constraint recommended on date.
@@ -47,6 +47,9 @@ When resolving:
     - If PAUSED:
         - DailyWin -> PAUSED (note required)
         - Task -> PAUSED
+    - If BLOCKED:
+        - DailyWin -> BLOCKED (note required)
+        - Task -> BLOCKED
     
 These transitions must respect the Task State Machine
 
@@ -57,7 +60,7 @@ These transitions must respect the Task State Machine
 A Daily Win is considered resolved when:
 
     - Status is DONE
-    - If PAUSED or BLOCKED -> note exists and is non-empty and DailyWin is vacated
+    - If PAUSED or BLOCKED -> note exists and is non-empty and and new DailyWin is selected
     - If DONE -> completed_at exists
 
 ACTIVE is the only unresolved state
