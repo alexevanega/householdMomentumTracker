@@ -10,11 +10,8 @@ If a daily Win is ACTIVE, the Daily Win slot for that date is locked.
 ---
 
 ### Resolved States
-- DONE
-- PAUSED (note required)
-- BLOCKED (note required)
 
-Only PAUSED/BLOCKED states vacate Daily Win record and allow a new Daily Win to be selected.
+- DONE
 
 ---
 
@@ -75,9 +72,7 @@ The Daily Win slot for the day becomes eligible for new selection only when:
 
     - Status is PAUSED, BLOCKED
             AND
-    - All required resolution conditions are satisfied
-
-ACTIVE/DONE are the only locking states.
+    - All required PAUSED/BLOCKED conditions are satisfied
 
 ---
 
