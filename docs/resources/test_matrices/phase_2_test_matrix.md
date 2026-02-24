@@ -170,30 +170,30 @@ Given today's Daily Win is ACTIVE
 When resolving it as DONE without setting completed_at
 Then the system rejects the resolution
 
-### Scenario F3 - Resolve Daily Win as PAUSED with note
+### Scenario F3 - Transition Daily Win as PAUSED with note
 
 Given today's Daily Win is ACTIVE
-When resolving it as PAUSED with a non-empty note
+When transitioning it to PAUSED with a non-empty note
 Then today's Daily Win becomes PAUSED
 And the linked task becomes PAUSED
 
-### Scenario F4 - Reject PAUSED resolution without note
+### Scenario F4 - Reject PAUSED transition without note
 
 Given today's Daily Win is ACTIVE
-When resolving it as PAUSED with no note or blank note
+When transitioning it to PAUSED with no note or blank note
 Then the system rejects the resolution
 
-### Scenario F5 - Resolve Daily Win as BLOCKED with note
+## Scenario F5 - Transition Daily Win as BLOCKED with note
 
 Given today's Daily Win is ACTIVE
-When resolving it as BLOCKED with a non-empty note
+When transitioning it to BLOCKED with a non-empty note
 Then today's Daily Win becomes BLOCKED
 And the linked task becomes BLOCKED
 
-### Scenario F6 - Reject BLOCKED resolution without note
+### Scenario F6 - Reject BLOCKED transition without note
 
 Given today's Daily Win is ACTIVE
-When resolving it as BLOCKED with note note or blank note
+When transitioning it to BLOCKED with note note or blank note
 Then the system rejects the resolution
 
 ---
@@ -230,13 +230,13 @@ Given today's Daily Win is ACTIVE
 When attempting to select a different task as today's Daily Win
 Then the system rejects the attempt
 
-### Scenario H2 - Require explicit resolution before switching
+### Scenario H2 - Require explicit reasoning before switching
 
 Given today's Daily Win is ACTIVE
 When user wants a different task
-Then user must resolve current as PAUSED/BLOCKED
+Then user must transition current to PAUSED/BLOCKED
 And current Daily Win will be vacated
-And only after resolution may a new selection occur
+And only after transition may a new selection occur
 
 ---
 
@@ -262,7 +262,7 @@ Given there are no eligible tasks
 When attempting to select a Daily Win
 Then the system rejects with a clear message
 
-### Scenario I4 - Corruption Guard: multipke DailyWins for same date
+### Scenario I4 - Corruption Guard: multiple DailyWins for same date
 
 Given the database contains more than one DailyWin record for the same date
 When any Daily Win is attempted
