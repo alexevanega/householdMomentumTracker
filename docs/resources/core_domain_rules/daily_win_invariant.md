@@ -3,6 +3,8 @@
 ## Core Invariant
 
     - Exactly ONE Daily Win may be ACTIVE per calendar day
+    - Daily Win is a slot to be filled by an ACTIVE task item.
+    - Only ONE Daily Win slot can be completed per calendar day
 
 ---
 
@@ -63,6 +65,9 @@ A Daily Win is considered resolved when:
     - If DONE -> completed_at exists
 
 ACTIVE is the only unresolved state
+
+** A Daily Win is not a single task item. It is a slot that can be filled by a task. It will retain
+   all of the same resolution options as a normal task: ACTIVE/BLOCKED/PAUSED/DONE/etc. While the only way to resolve a Daily Win is to complete the task. You Will still have the option to PAUSE/BLOCK. Once you have PAUSED/BLOCKED the daily win slot is vacated and a new daily win will be selected. **
 
 ---
 
