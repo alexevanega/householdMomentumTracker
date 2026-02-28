@@ -4,7 +4,7 @@ from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 
-def error_payload(code: str, message: str, details: Optional[Any] = None) -> Dict[Str, Any]:
+def error_payload(code: str, message: str, details: Optional[Any] = None) -> Dict[str, Any]:
     """
     Cannonical error payload shape for the entire API.
     
