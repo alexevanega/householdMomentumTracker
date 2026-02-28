@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from app.api.errors import APIError, build_error_response
 from sqlalchemy.orm import Session
 from app.settings import settings
 from app.db import init_db, get_db
@@ -74,3 +75,12 @@ def dev_status(db: Session = Depends(get_db)):
         "tasks": db.query(Task).count(),
         "daily_wins": db.query(DailyWin).count()
     }
+
+@app.exception_handler(APIError)
+async def api_error_handler(request, exc: APIError):
+    return build_error_response(
+        code=exc.code,
+        message=exc.message,
+        status_code=exc.status_code
+    )
+
