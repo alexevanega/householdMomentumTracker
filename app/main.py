@@ -21,6 +21,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title=settings.APP_NAME, lifespan=lifespan)
 
+app.add_exception_handler(APIError, api_error_handler)
+app.add_exception_handler(RequestValidationError, request_validation_error_handler)
+app.add_exception_handler(HTTPException, http_exception_handler)
+
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 templates = Jinja2Templates(directory="app/templates")
@@ -38,7 +42,7 @@ def home(request: Request):
 
 @app.get("/api/health")
 def health():
-    return {"status":"ok"}
+    return {"data": {"status":"ok"}}
 
 # DEV ONLY: Remove or disable /api/dev/* endpoints outside local development (Phase 7+)
 @app.post("/api/dev/seed")
@@ -67,17 +71,12 @@ def seed_data(db: Session = Depends(get_db)):
     db.add_all([user1, user2, task1, task2])
     db.commit()
 
-    return {"message": "Seeded dev data"}
+    return {"data": {"message": "Seeded dev data"}}
 
 @app.get("/api/dev/status")
 def dev_status(db: Session = Depends(get_db)):
-    return {
+    return {"data": {
         "users": db.query(User).count(),
         "tasks": db.query(Task).count(),
         "daily_wins": db.query(DailyWin).count()
-    }
-
-app.add_exception_handler(APIError, api_error_handler)
-app.add_exception_handler(RequestValidationError, request_validation_error_handler)
-app.add_exception_handler(HTTPException, http_exception_handler)
-
+    }}
