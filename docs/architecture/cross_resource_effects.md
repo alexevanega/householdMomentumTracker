@@ -60,3 +60,37 @@ Postconditions:
 Even though tasks have their own /api/tasks/{id}/transition the Daily Win workflow has priority.
 
 - If a task is today’s Daily Win, task status changes that affect it must happen via Daily Win endpoints, not the task transition endpoint.
+
+## Data Integrity Invariants (must always be true)
+
+1. If daily_win.status = DONE then daily_win.completed_at is not null
+
+2. If daily_win.status in {PAUSED, BLOCKED} then daily_win.note is note null/blank
+
+3. If daily_win.status = ACTIVE then associated task.status = ACTIVE
+
+4. If daily_win.status = DONE then associated task.status = DONE
+
+5. If daily_win.status in {PAUSED, BLOCKED} then associated task.status matches it
+
+## Definition of Done
+
+If POST /api/tasks/{task_id}/transition is called and that task is the task for today's Daily Win:
+
+If to_status = DONE
+    - Update Task -> DONE
+    - Update today's DailyWin -> DONE
+    - Set DailyWin.completed_at = now
+    - The day is closed
+
+If to_status = PAUSED or BLOCKED
+    - Require note (400 note_required)
+    - Update Task -> PAUSED/BLOCKED
+    - Update today's Daily Win -> same status
+    - Set DailyWin.note = note
+    - completed_at remains null
+    - Slot is vacated (selection allowed)
+
+Any other to_status (BACKLOG, ABANDONED, etc.)
+
+- Reject (409 invalid_transition)
